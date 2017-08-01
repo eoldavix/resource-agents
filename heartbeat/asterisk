@@ -469,8 +469,8 @@ asterisk_validate || exit $?
 
 # Now that validate has passed and we can be sure to be able to read
 # the config file, set convenience variables
-ASTRUNDIR=`grep astrundir $OCF_RESKEY_config | awk '/^astrundir/ {print $3}'`
-ASTLOGDIR=`grep astlogdir $OCF_RESKEY_config | awk '/^astlogdir/ {print $3}'`
+ASTRUNDIR=`grep astrundir $OCF_RESKEY_config | awk -F'=' '/^astrundir/ {print $2}'`
+ASTLOGDIR=`grep astlogdir $OCF_RESKEY_config | awk -F'=' '/^astlogdir/ {print $2}'`
 
 # What kind of method was invoked?
 case "$1" in
